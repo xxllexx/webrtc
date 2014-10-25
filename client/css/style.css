@@ -1,0 +1,250 @@
+body{
+    /*overflow: hidden;*/
+}
+
+@-webkit-keyframes bordercollor {
+    0%   {border-color: #f3384b}
+    25%  {border-color: #f35fe8}
+    50%  {border-color: #7b65f3}
+    75%  {border-color: #4db8f3}
+    100% {border-color: #f3384b}
+}
+
+@-webkit-keyframes greenpos {
+    0%   {left: 10px}
+    50%  {left: 30px}
+    100% {left: 10px}
+}
+
+@-webkit-keyframes redpos {
+    0%   {left: 30px}
+    50%  {left: 10px}
+    100% {left: 30px}
+}
+
+.video-avatar{
+    position: absolute;
+    left: 50%;
+    top: 75px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0;
+    border: 10px solid #bebebe;
+    border-radius: 150px;
+    -webkit-animation: bordercollor 10s infinite;
+    transform: translate(-50%, 0);
+}
+.video-avatar.chatVideo{
+    left: 2500px;
+    top: 2500px;
+    transform: translate(-50%, -50%);
+}
+
+.video-avatar video{
+    width: 300px;
+    height: 200px;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><circle stroke='#FFFFFF' stroke-miterlimit='10' cx='100' cy='100' r='100'/></svg>") center no-repeat;
+    transform: translate(-50px, 0);
+}
+
+.register{
+    width: 220px;
+    background-color: #f3f3f3;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 0px 3px 0 rgba(0,0,0, 0.1);
+}
+
+.register h5{
+    margin-top: 230px;
+    font-family: Helvetica, Arial;
+    font-size: 12px;
+    color: #e8e8e8;
+    text-align: center;
+    line-height: 20px;
+}
+.register button{
+    margin: 20px 0 0;
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: 0;
+    background-color: #f3384b;
+    outline: none;
+    text-shadow: 1px 1px 0 rgba(0,0,0, 0.2);
+}
+.register button:active{
+    /*background-color: #fff;*/
+    /*color: #f3384b;*/
+    box-shadow: inset 0px 3px 0 rgba(0,0,0, 0.2);
+    padding: 12px 20px 8px;
+}
+
+.register canvas {
+    display: none;
+}
+
+.chat{
+    width: 5000px;
+    height: 5000px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-item{
+    position: absolute;
+}
+
+.chat-item .user{
+    border-radius: 300px;
+    overflow: hidden;
+    margin: 0;
+    border: 10px solid #bebebe;
+    -webkit-animation: bordercollor 10s infinite;
+    width: 0;
+    height: 0;
+    margin: 50% 0 0 50%;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.chat-item .user figure{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 300px;
+    background-color: #000;
+}
+
+.chat-item .user.lineup figure{
+    display: block;
+}
+
+.chat-item .user figure video{
+    width: 100%;
+    height: 100%;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><circle stroke='#FFFFFF' stroke-miterlimit='10' cx='75' cy='75' r='75'/></svg>") center no-repeat;
+    /*transform: translate(0px, 0);*/
+}
+
+.chat-item.show .user{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.chat-item img{
+    height: 100%;
+    margin-left: -15px;
+}
+
+.chat-item .call{
+    display: none;
+    background: rgba(0,0,0,0.5) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEkklEQVR42qWUe2xTdRTHv/d37227lQ0lgiEbCQQ0sm7rtijsYXjWkoEyZGvrM2rUmJWH0UnQERQiOrI/FBMWmEpISFjcugAy9jAsqYDra2WLyEMyIYNRtlL36Lo+1se9/noZSQ3zse38ce/Nufmdzznn+zuHQYJp27KrVqWrP57Nz0Jz78UjLesc72CGxjz4KGsvMBmWvFaWNluB675juOULweliG89oLboZA547o675JG+rMYw+7LOcwrO5c7CQhHDPz6Czj+xtKu7YM23Ahqanl+anL79atkiN9sFv0D+qRMdVHoX5CqSxIQz5IrDe5HStJZbG6QFO59dUFe0wXvHXYig8DBnP4vqfIi50E6xcnYx0EsTQmAD7TWKgkIYpA944u3mscrlW2equASGzwNCmsYRBj1vAeacITXGKVMlVVxi3B9jUls1W35QA+zqN4sqFyXB6zWAZGWLifd3lMgZtDgF9dwSs25QKrzuA3ltCYaveap0SYLejXFy9kEeXt4MC5BCpU6Dax99JcoI2WxSefhFpT3A4UfwLM5XgEmBXh1Fc8ySHrhELyAMArSLeKpHj0N0TRr9L8Pz8pm3etETeaFo/+rl2fUqz+yg4RhF30QoATsbirH0c4wEcpMG3TSe4BCg8uuyHQyW7DKc9n0JGRRbBQiCQbo7FETlheddeOt3gEuCZw+qN5ate/ZFP6cItfx9tDUshDMK0V23tIZ/DaE+dESD+2FC3Qdy9vgSt976l+SulHyxHcOmPCG7fiDRYy+2GGQFyDmTtqSg2fuZXnMVA6B71cpLIAp2Hc+cDCAcYnWWLbdJJzjmQ/UrKLOWeYCDS6NzurJwUELc1362N7i99mz3p+Ro8kyy1iYlTeOCcOYDxMeht2+ymxMMFh5aZ3tMayjQL5uP7a7U42R5o/LWiUzcpIPerHFVRZtFlTU4qbMPnaHC55Ce0CoZj0HpyFBxLdPbtdqkSVXVGw4fPl+vGyTDMnlNYsUgBV38EZhsx2bfZ9Q8B4pZRparZ8cJWo/cRM+7670qTLVCxGXqrgmEGdrOPtkuoCEVDmfoVL76lUalQ76lFz29BKJI4rFFzEAJBHG+BqfP9+5CHJjO7Os+zs6T8sdvy0xgMeenwsdLVjVciMDHc6eWRn1aAp+bOR/NgHU2AB8+xuGQbhSyFhSaPB6HDc7xJNDk/cOgnHf3s6lz3Xt1H866RegwGfRJEkNJhEKO4mBhFjJZGGJ5mSKQLEU/g4nkvklI5aApkYEN+1DUJR/5xt2Ttz3Xv2GSc51I2YyDghShyfytXnNhXiWrGtXL8NILkRzkUr5bj2uUg/nV5qavyzC+tLV2V9HgvekLXwdJ20AmZACTCJhhUK8IysDaPYHYaj6g/Jvzndly6N2vL4vQlB/WalbgitmIsHAERKWRirSeC4gCeJwhFo7hQN0L3GVn8v9Zv9pe5Mo7wxzIXZxgyVHNxB5chU4oQYwnBKXM8JODG7wG4uoPgk9jMrp2OK1Pa71lf5LCigNcZkX1ZEKCds4CHQMWOZ+4fiCEaE7s4jqnvrnRWPzjzFx4ezzrPCwHbAAAAAElFTkSuQmCC) no-repeat center center;
+    background-size: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 40px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+}
+.chat-item:hover .call{
+    display: block;
+}
+.chat-item .call:hover{
+    background-color: rgba(0,0,0, 0.7);
+}
+
+.chat-item .user .load{
+    display: none;
+}
+
+.chat-item .user.connecting .load{
+    display: block;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70px;
+    background-color: rgba(0,0,0,0.3);
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    border-radius: 300px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.chat-item .user.connecting .load .red{
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    background-color: rgba(243, 56, 75, 1);
+    -webkit-animation: redpos 3s infinite;
+    border-radius: 100px;
+}
+.chat-item .user.connecting .load .green{
+    border-radius: 100px;
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    background-color: rgba(21, 118, 4, 1);
+    -webkit-animation: greenpos 3s infinite;
+}
+body.online .call,
+body.online .chat-item:hover .call,
+.chat-item .user.busy .call,
+.chat-item .user button[name="hangup"],
+.chat-item .user.lineup .call,
+.chat-item .doAnswer .call,
+.chat-item .user.connecting .call{
+    display: none;
+}
+
+.chat-item .user.busy{
+    opacity: 0.5;
+}
+
+.chat-item .user.lineup{}
+
+.chat-item .user.lineup button[name="hangup"]{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: block;
+    background-color: #f3384b;
+    border: 0;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #fff;
+    padding: 3px 5px;
+}
+
+.chat-item .doAnswer button[name="answer"]{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: block;
+    background-color: #7EC308;
+    border: 0;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 10px;
+}
