@@ -1,0 +1,11 @@
+{
+  "name": "WebRtcDemo",
+  "version": "0.0.1",
+  "description": "demo app for workshop",
+  "main": "index.js",
+  "author": "xxllexx",
+  "devDependencies": {
+    "websocket": "^1.0.8",
+    "mime": "^1.2.11"
+  }
+}
